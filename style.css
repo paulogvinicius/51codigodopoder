@@ -1,0 +1,740 @@
+:root {
+    --primary-black: #0a0c10;
+    --accent-orange: #ff8a00;
+    --text-white: #ffffff;
+    --text-gray: #b0b3b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--primary-black);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Header Estilo Referência */
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    padding: 25px 5%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end; /* Alinha o menu à direita após a remoção da logo */
+    align-items: center;
+}
+
+.nav-links { 
+    display: flex; 
+    align-items: center; 
+    gap: 40px; 
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; 
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+    opacity: 1;
+}
+
+.btn-nav-outline {
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 10px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-nav-outline:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Hero Section (Permanecendo idêntica à referência anterior) */
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(10, 12, 16, 1) 20%, rgba(10, 12, 16, 0.4) 50%, rgba(10, 12, 16, 0) 80%), 
+                      url('images/banner.png');
+    background-size: cover;
+    background-position: center right;
+    display: flex;
+    align-items: center;
+}
+.hero-content {
+    padding-left: 8%;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin-bottom: 40px;
+    max-width: 550px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        /* Substitua 'banner-mobile.png' pelo nome da sua nova imagem vertical */
+        background-image: linear-gradient(to top, rgba(10, 12, 16, 1) 40%, rgba(10, 12, 16, 0.7) 70%, rgba(10, 12, 16, 0.2) 100%), 
+                          url('images/fotoperfil.png');
+        
+        background-position: center center;
+        align-items: flex-end;
+        padding-bottom: 60px;
+    }
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { background-color: #e67a00; }
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+.services {
+    padding: 100px 5%;
+    background-color: #0a0c10; /* Preto sólido */
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: var(--text-gray);
+    max-width: 700px;
+    margin: 0 auto 50px;
+    font-size: 16px;
+}
+
+/* Grid de 3 colunas */
+.grid-services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background-color: #1c222a; /* Cor do card (cinza muito escuro) */
+    border-radius: 8px;
+    height: 180px; /* Altura fixa para manter o padrão da foto */
+    padding: 25px;
+    position: relative; /* Para posicionar a seta */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    text-align: left;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    background-color: #252b35;
+}
+
+/* Conteúdo interno do card */
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* O círculo laranja */
+.dot {
+    width: 28px;
+    height: 28px;
+    background-color: #ff8a00;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.service-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* A seta no canto superior direito */
+.arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #ff8a00;
+    font-size: 20px;
+    font-family: serif; /* Para um visual mais fino como na foto */
+}
+
+
+/* ==========================================================================
+   SEÇÃO SOBRE (ABOUT) - CORRIGIDA E RESPONSIVA
+   ========================================================================== */
+
+.about {
+    padding: 100px 0;
+    background-color: #0a0c10;
+    position: relative; /* Base para posicionar a faixa laranja */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* A faixa laranja horizontal ao fundo */
+.orange-bar {
+    position: absolute;
+    width: 100%;
+    height: 180px; /* Altura da faixa */
+    background-color: #ff8a00;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 2; /* Fica acima da faixa laranja */
+}
+
+.about-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-img {
+    width: 100%;
+    max-width: 450px; /* Mantém o tamanho original em telas grandes */
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.accent-name {
+    color: #ff8a00;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.about-role {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.about-description {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 450px;
+}
+
+.btn-primary-about {
+    background-color: #ff8a00;
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES) CORRIGIDA
+   ========================================================================== */
+
+@media (max-width: 900px) {
+    .about {
+        padding: 60px 0;
+    }
+
+    .about-container {
+        flex-direction: column; /* Empilha a imagem acima do texto */
+        text-align: center;
+        gap: 0px; /* Remove o espaçamento bruto para a barra laranja encaixar */
+    }
+
+    .about-image-wrapper {
+        width: 100%;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 0px;
+    }
+
+    .about-img {
+        max-width: 380px; /* Reduz um pouco o tamanho da foto no mobile para dar harmonia */
+        width: 100%;
+    }
+
+    /* Ajuste milimétrico da barra laranja no mobile */
+    .orange-bar {
+        top: 240px; /* Alinha perfeitamente com a altura do peito/ombro do Thiago no mobile */
+        transform: none;
+        height: 140px; /* Altura reduzida para combinar com o layout comprimido */
+    }
+
+    .about-text {
+        width: 100%;
+        text-align: center;
+        padding: 40px 20px 0; /* Dá o respiro necessário após a foto */
+        background-color: #0a0c10; /* Garante fundo preto sobrepondo qualquer rebarba da faixa */
+    }
+
+    .about-description {
+        margin: 0 auto 30px;
+    }
+
+    .accent-name {
+        font-size: 36px;
+    }
+
+    .about-role {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    /* Mantém a organização das colunas de serviços intacta separadamente */
+    .grid-services { 
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-services { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .about-img {
+        max-width: 320px; /* Ajuste para telas muito pequenas (iPhones antigos, etc) */
+    }
+    
+    .orange-bar {
+        top: 200px;
+        height: 120px;
+    }
+}
+
+.stats {
+    width: 100%;
+}
+
+/* Bloco de cima: Fundo preto sólido */
+.stats-top {
+    background-color: #0a0c10;
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.main-stat {
+    font-size: 82px; /* Bem grande como na foto */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: -2px;
+}
+
+.stat-caption {
+    color: #ff8a00; /* Laranja conforme o print */
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: none;
+}
+
+/* Bloco de baixo: Faixa branca */
+.stats-bottom {
+    background-color: #ffffff;
+    padding: 60px 0;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-item .number {
+    font-size: 64px;
+    font-weight: 900; /* Peso máximo para os números */
+    color: #0a0c10;
+    line-height: 1;
+}
+
+.stat-item .label {
+    color: #0a0c10;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    opacity: 0.8;
+}
+
+/* Responsividade para não quebrar a faixa branca */
+@media (max-width: 850px) {
+    .stats-grid {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    .main-stat {
+        font-size: 48px;
+    }
+    .stat-item .number {
+        font-size: 42px;
+    }
+}
+
+.faq {
+    background-color: #121926; /* Tom azul marinho bem escuro do print */
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.faq-title {
+    color: #ff8a00; /* Laranja da referência */
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.faq-subtitle {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre as caixas brancas */
+}
+
+.faq-item {
+    width: 100%;
+}
+
+.faq-question {
+    width: 100%;
+    background-color: #ffffff; /* Caixa branca */
+    border: none;
+    border-radius: 6px; /* Cantos levemente arredondados */
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s;
+}
+
+/* O ícone da seta (V) */
+.chevron {
+    width: 12px;
+    height: 12px;
+    border-right: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+    transform: rotate(45deg); /* Faz virar um V */
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* Quando o FAQ estiver aberto, a seta vira para cima */
+.faq-item.active .chevron {
+    transform: rotate(-135deg);
+    margin-bottom: -5px;
+}
+
+/* Resposta oculta por padrão */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 0 0 6px 6px;
+    margin-top: -5px; /* Para colar na caixa de cima */
+    text-align: left;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-answer p {
+    padding: 0 30px 20px;
+    color: #444;
+}
+
+.contact {
+    /* Substitua pelo caminho da sua imagem de fundo */
+    background-image: url('images/banner8.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito parallax opcional */
+    min-height: 80vh; /* Altura da seção */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Camada escura por cima da imagem para dar contraste */
+.contact-overlay {
+    background: rgba(0, 0, 0, 0.4); 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+/* O card de vidro */
+.glass-card {
+    background: rgba(255, 255, 255, 0.1); /* Branco bem transparente */
+    backdrop-filter: blur(15px); /* O segredo do efeito embaçado */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.glass-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.glass-card p {
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* Estilo dos Inputs */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    padding: 12px 15px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-group input:focus {
+    border-color: #ff8a00;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Botão minimalista */
+.btn-submit {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+    text-transform: none;
+}
+
+.btn-submit:hover {
+    color: #ff8a00;
+}
+
+/* Seção de Garantia */
+.warranty {
+    background-color: #0d1117; /* Um tom ligeiramente diferente do preto absoluto para destacar */
+    padding: 80px 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.warranty-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.warranty-badge-wrapper {
+    flex-shrink: 0;
+}
+
+/* Selo minimalista de 7 dias */
+.warranty-badge {
+    width: 140px;
+    height: 140px;
+    border: 2px dashed var(--accent-orange);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 138, 0, 0.03);
+    animation: pulseBadge 3s infinite ease-in-out;
+}
+
+.badge-number {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent-orange);
+    line-height: 1;
+}
+
+.badge-days {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.warranty-text {
+    text-align: left;
+}
+
+.warranty-text h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 15px;
+}
+
+.warranty-text p {
+    font-size: 16px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    max-width: 700px;
+}
+
+.warranty-text strong {
+    color: var(--accent-orange);
+}
+
+.warranty-subtext {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    font-style: italic;
+}
+
+/* Animação sutil no selo */
+@keyframes pulseBadge {
+    0% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.03); opacity: 1; border-color: #e67a00; }
+    100% { transform: scale(1); opacity: 0.9; }
+}
+
+/* Responsividade para a Garantia */
+@media (max-width: 768px) {
+    .warranty-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .warranty-text {
+        text-align: center;
+    }
+    
+    .warranty-text h2 {
+        font-size: 26px;
+    }
+}
+
