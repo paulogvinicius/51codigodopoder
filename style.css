@@ -125,6 +125,10 @@ nav ul li a:hover {
         align-items: flex-end;
         padding-bottom: 60px;
     }
+
+    .hero-content h1 {
+    font-size: 30px;
+   }
 }
 
 .btn-outline {
